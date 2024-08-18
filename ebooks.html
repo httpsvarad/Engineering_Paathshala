@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="Images/eplogo3.png">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+
+      .container {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin-top: 30px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: "Pacifico", cursive;
+        font-weight: 300;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      select {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .button-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .ok-button {
+        flex: 1;
+        margin: 0 5px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .home-button {
+        flex: 1;
+        margin: 0 5px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #ffffff;
+        color: #007bff;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .ok-button:hover {
+        background-color: #006de2;
+      }
+
+      .book-section {
+        margin-top: 30px;
+      }
+
+      .book {
+        display: inline-block;
+        text-align: center;
+        margin: 10px;
+      }
+
+      .book img {
+        width: 155px;
+        height: 215px;
+        object-fit: cover;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .book a {
+        text-decoration: none;
+        color: #333;
+      }
+
+      .book a:hover {
+        color: #007bff;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Engineering Paathshala</h1>
+      <label for="year">Select Your Year</label>
+      <select id="year">
+        <option value="year1" selected>FE</option>
+        <option value="year2">SE CSE</option>
+        <!-- option value="year3">TE CSE</option>
+        <option value="year4">BE CSE</option -->
+      </select>
+      <div class="button-container">
+        <button class="ok-button" onclick="showBooks()">Ok</button>
+        <button class="home-button" onclick="goHome()">Home</button>
+      </div>
+    </div>
+
+    <div id="bookList" class="container">
+      <!-- The book list will be displayed here -->
+    </div>
+
+    <br />
+
+    <footer>
+      <p>Made with Heart and Soul | &#169; 2023</p>
+    </footer>
+
+    <script>
+      function showBooks() {
+        const year = document.getElementById("year").value;
+        const bookListContainer = document.getElementById("bookList");
+        bookListContainer.innerHTML = ""; // Clear previous book list
+
+        const semesterMappings = {
+          year1: ["sem1", "sem2"],
+          year2: ["sem3"],
+          year3: ["sem5", "sem6"],
+          year4: ["sem7", "sem8"],
+        };
+
+        const semesters = semesterMappings[year];
+        const yearsData = {
+          year1: [
+            {
+              sem1: [
+                  
+                {
+                  name: "BEE Notes",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem1/beenotes.pdf",
+                },  
+                
+                {
+                  name: "Mechanics",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem1/enggmechnotes.pdf",
+                },
+
+                {
+                  name: "EP 1 Notes",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem1/Physics_SEM_1_Notes.pdf",
+                },
+                {
+                  name: "EP 1 Numericals",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem1/Physics_SEM_1_Numericals.pdf",
+                },
+                {
+                  name: "Maths Formula Sheet",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem1/Maths_Formula_Sheet.pdf",
+                },
+                {
+                  name: "M1 Notes",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem1/Maths_SEM_1_Notes.pdf",
+                },
+                
+                // Add more books for sem1 of year1 as needed
+              ],
+              sem2: [
+                {
+                  name: "M2 Notes",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem2/Maths_SEM_2_Notes.pdf",
+                },
+                {
+                  name: "EP 2 Notes",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem2/Physics_SEM_2_Notes.pdf",
+                },
+                {
+                  name: "EP 2 Numericals",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem2/Physics_SEM_2_Numericals.pdf",
+                },
+                {
+                  name: "CP Notes",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/FE/sem1/C_Handwritten_Notes.pdf",
+                },
+                // Add more books for sem2 of year1 as needed
+              ],
+            },
+            // Add more years as needed
+          ],
+          year2: [
+            {
+              sem3: [
+                
+                {
+                  name: "DLCA Notes",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/SE/sem3/DLCA_Notes_PMM.pdf",
+                },
+                {
+                  name: "JAVA Notes",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/SE/sem3/Java_Basics_Handwritten.pdf",
+                },
+                {
+                  name: "JAVA Basic Programs",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/SE/sem3/Java_Basic_programms.pdf",
+                },
+                {
+                  name: "Data Structure",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/SE/sem3/Data_Stracture_Notes.pdf",
+                },
+                {
+                  name: "CG Notes",
+                  cover: "Images/docimg.png",
+                  pdf: "ebooks/SE/sem3/cgnotes.pdf",
+                },
+                
+                
+            
+                
+                // ... (more year2 sem3 books)
+              ],
+              
+            },
+            // Add more years as needed
+          ],
+          // ... (other years data)
+        };
+
+        semesters.forEach((semester) => {
+          const semesterHeader = document.createElement("h2");
+          semesterHeader.textContent = semester.toUpperCase();
+          bookListContainer.appendChild(semesterHeader);
+
+          const yearData = yearsData[year];
+          const semesterData = yearData.find((data) =>
+            data.hasOwnProperty(semester)
+          );
+
+          if (semesterData) {
+            const books = semesterData[semester];
+
+            books.forEach((book) => {
+              const bookDiv = document.createElement("div");
+              bookDiv.classList.add("book");
+
+              const bookLink = document.createElement("a");
+              bookLink.href = book.pdf;
+              bookLink.target = "_blank"; // Open the link in a new tab
+
+              const bookImg = document.createElement("img");
+              bookImg.src = book.cover;
+
+              bookLink.appendChild(bookImg);
+              bookDiv.appendChild(bookLink);
+
+              const bookNamePara = document.createElement("p");
+              bookNamePara.textContent = book.name; // Add the book name to the paragraph
+              bookDiv.appendChild(bookNamePara);
+
+              bookListContainer.appendChild(bookDiv);
+            });
+          }
+        });
+      }
+
+      // Trigger the showBooks function immediately after the page loads
+      window.addEventListener("DOMContentLoaded", showBooks);
+
+      function goHome() {
+        // Redirect to the home page (you can replace "index.html" with your actual home page URL)
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
